@@ -394,6 +394,35 @@ you should place your code here."
   (global-company-mode 1)
   (show-paren-mode t)
 ;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;org mode settings;;;;;;;;;;;;;;;;
+  (defadvice org-agenda (around split-vertically activate)
+    (let ((split-width-threshold 60))  ; or whatever width makes sense for you
+      ad-do-it))
+
+  ;; set agenda files
+  (setq org-src-fontify-natively t)
+  (setq org-agenda-files (file-expand-wildcards "~/.emacs.d/org/*.org"))
+  (with-eval-after-load 'org
+    ;; Org 模式相关设定
+
+     ;; 设置默认 Org Agenda 文件目录
+    
+    
+    ;; (setq org-agenda-files '("~/.emacs.d/org"))
+    ;;Org-mode 来做学习笔记和安排工作时间
+
+    (setq org-capture-templates
+          '(("t" "Todo" entry (file+headline "~/.emacs.d/private/org/gtd.org" "工作安排")
+             "* TODO [#B] %?\n  %i\n"
+             :empty-lines 1)))
+    
+    )
+
+  (global-set-key (kbd "C-c C-r") 'org-capture)
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
