@@ -401,14 +401,14 @@ you should place your code here."
 
   ;; set agenda files
   (setq org-src-fontify-natively t)
-  (setq org-agenda-files (file-expand-wildcards "~/.emacs.d/org/*.org"))
+;; (setq org-agenda-files (file-expand-wildcards "~/.emacs.d/private/org/*.org"))
   (with-eval-after-load 'org
     ;; Org 模式相关设定
 
      ;; 设置默认 Org Agenda 文件目录
     
     
-    ;; (setq org-agenda-files '("~/.emacs.d/org"))
+    (setq org-agenda-files '("~/.emacs.d/private/org"))
     ;;Org-mode 来做学习笔记和安排工作时间
 
     (setq org-capture-templates
