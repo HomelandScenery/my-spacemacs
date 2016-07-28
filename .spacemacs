@@ -345,9 +345,9 @@ you should place your code here."
   ;;;;;;;;;;;;;;;;;;;;;;;;  
  
   ;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; (ivy-mode 1)
-  ;; (setq ivy-use-virtual-buffers t)
-  ;; (global-set-key "\C-s" 'swiper)
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (global-set-key (kbd "C-s") 'swiper)
   ;;http://oremacs.com/swiper/
   ;;(global-set-key (kbd "C-c C-r") 'ivy-resume)
 ;;  (global-set-key (kbd "<f6>") 'ivy-resume)
