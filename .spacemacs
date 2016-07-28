@@ -291,9 +291,7 @@ you should place your code here."
   (setq custom-file (expand-file-name "~/.emacs.d/lisp/Custom.el" dotspacemacs-directory))
   (load custom-file 'no-error 'no-message)
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;
-   (add-hook 'org-mode-hook (lambda ()
-                             (setq truncate-lines nil)))
+
   ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -308,7 +306,6 @@ you should place your code here."
   (setq evil-emacs-state-cursor '("#82c382" (bar . 2)))
    (setq-default evil-escape-key-sequence "jj") 
   ;;;;;;;;;;;;;;;;;;;;;;;;
-  (setq org-bullets-bullet-list '("●" "◎" "□" "★"))
   ;;;;;;;;;;;;;;;;;;;;;;;;
   (server-start)
   ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -356,7 +353,10 @@ you should place your code here."
 ;;  (global-set-key (kbd "<f6>") 'ivy-resume)
   ;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/lisp/")
- (require 'init-better-editor)
+(require 'init-better-editor)
+(require 'init-org)
+
+
   ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;Company插件翻页更改
   ;;(global-company-mode 1)
@@ -376,10 +376,7 @@ you should place your code here."
   (setq font-lock-maximum-decoration t
         font-lock-maximum-size nil)
  ;;;;;;;;;;;;;;;;;;;;;;;;
- ;;;;;;;org mode settings;;;;;;;;;;;;;;;;;
-  (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
-  (require 'org)
-  
+ 
  ;;  config web-mode for HTML
   (add-to-list 'auto-mode-alist '("\\.\\(html\\|xhtml\\|css\\)$" . web-mode))
   (require 'web-mode)
@@ -394,34 +391,7 @@ you should place your code here."
   (global-company-mode 1)
   (show-paren-mode t)
 ;;;;;;;;;;;;;;;;;;;;;;;;
-  ;;;;;;;;org mode settings;;;;;;;;;;;;;;;;
-  (defadvice org-agenda (around split-vertically activate)
-    (let ((split-width-threshold 60))  ; or whatever width makes sense for you
-      ad-do-it))
-
-  ;; set agenda files
-  (setq org-src-fontify-natively t)
-;; (setq org-agenda-files (file-expand-wildcards "~/.emacs.d/private/org/*.org"))
-  (with-eval-after-load 'org
-    ;; Org 模式相关设定
-
-     ;; 设置默认 Org Agenda 文件目录
-    
-    
-    (setq org-agenda-files '("~/.emacs.d/private/org"))
-    ;;Org-mode 来做学习笔记和安排工作时间
-
-    (setq org-capture-templates
-          '(("t" "Todo" entry (file+headline "~/.emacs.d/private/org/gtd.org" "工作安排")
-             "* TODO [#B] %?\n  %i\n"
-             :empty-lines 1)))
-    
-    )
-
-  (global-set-key (kbd "C-c C-r") 'org-capture)
-
-  ;;;;;;;;;;;;;;;;;;;;;;;;
-  ;;;;;;;;;;;;;;;;;;;;;;;;
+    ;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
