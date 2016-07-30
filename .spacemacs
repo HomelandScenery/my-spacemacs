@@ -308,8 +308,10 @@ you should place your code here."
   ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
   (server-start)
-  ;;;;;;;;;;;;;;;;;;;;;;;;
-  (global-pangu-spacing-mode 0)
+  ;;;更改默认"SPC SPC" 'evil-avy-goto-word-or-subword-1 跳转为2字符;;
+  (evil-leader/set-key "SPC" 'avy-goto-char-2)
+;;;;;;;;;;;;;;;;;;;;;;;
+    (global-pangu-spacing-mode 0)
   ;;使用下面的配置文件将删除功能配置成与其他图形界面的编辑器相同，即当你选中一段文字之后输入一个字符会替换掉你选中部分的文字。
   (delete-selection-mode t)
   ;; 主动加载 Dired Mode 
