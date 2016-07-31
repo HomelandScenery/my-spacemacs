@@ -65,6 +65,9 @@
               ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
               ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))))
   ;;;;;;;;;;;;;;;;;;;;;;;;
+;; 设定每插入或删除一个注脚后,自动重编码和排序文档中的所有注脚.
+(setq org-footnote-auto-adjust t)
+  ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
 
 
