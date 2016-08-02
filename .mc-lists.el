@@ -73,6 +73,7 @@
         hippie-expand-no-case-fold
         html-paragraph
         html-wrap-in-tag
+        hungry-delete-backward
         ignore
         insert-postfix-whitespace
         js2-beginning-of-line

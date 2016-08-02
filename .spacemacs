@@ -354,6 +354,12 @@ you should place your code here."
   ;;(global-set-key (kbd "C-c C-r") 'ivy-resume)
 ;;  (global-set-key (kbd "<f6>") 'ivy-resume)
   ;;;;;;;;;;;;;;;;;;;;;;;;
+(global-hungry-delete-mode 1)
+;;;;;;;;;;;;;;;;;;;;;;;;
+  
+  ;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (require 'init-better-editor)
 (require 'init-org)
