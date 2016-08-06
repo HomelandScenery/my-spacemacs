@@ -360,6 +360,16 @@ you should place your code here."
 (setq beacon-push-mark 35)
 (setq beacon-color "#82c382")
 ;;;;;;;;;;;;;;;;;;;;;;;;
+;; 不要显示minor mode
+;; Diminished modes are minor modes with no modeline display
+(require 'diminish)
+;; Hide jiggle-mode lighter from mode line
+;; (diminish 'jiggle-mode)
+;; Replace abbrev-mode lighter with "Abv"
+;; (diminish 'abbrev-mode "Abv")
+(diminish 'beacon-mode)
+(diminish 'ivy-mode "I")
+(diminish 'server)
   ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/lisp/")
