@@ -52,7 +52,8 @@ values."
                                       visual-regexp
                                       visual-regexp-steroids
                                       beacon
-                                                                            )
+                                      cal-china-x
+                                      )
    
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -411,6 +412,38 @@ you should place your code here."
   (global-company-mode 1)
   (show-paren-mode t)
 ;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;日历设置;;;;;;;;;;;;;;;;;;;;;;
+;; 为设置中文里的 ‘celestial-stem’ (天干) 和 ‘terrestrial-branch’ (地支):
+(setq chinese-calendar-celestial-stem
+      ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
+      chinese-calendar-terrestrial-branch
+      ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
+;;; 补充用法: holiday-float m w n 浮动阳历节日, m 月的第 n 个星期 w%7
+(setq general-holidays '((holiday-fixed 1 1   "元旦")
+                         (holiday-fixed 2 14  "情人节")
+                         (holiday-fixed 4 1   "愚人节")
+                         (holiday-fixed 12 25 "圣诞节")
+                         (holiday-fixed 10 1  "国庆节")
+                         (holiday-float 5 0 2 "母亲节")   ;5月的第二个星期天
+                         (holiday-float 6 0 3 "父亲节")
+                         ))
+(setq local-holidays '((holiday-chinese 1 15  "元宵节 (正月十五)")
+                       (holiday-chinese 5 5   "端午节 (五月初五)")
+                       (holiday-chinese 9 9   "重阳节 (九月初九)")
+                       (holiday-chinese 8 15  "中秋节 (八月十五)")
+                       ;; 生日
+                       ;; (birthday-fixed 9 28  "爸爸生日(1950)")
+                       ;; (birthday-fixed 10 1  "妈妈生日(1953)")
+                       ;; (holiday-chinese 5 29 "老婆生日")           ;阴历生日
+                       (holiday-fixed 11 30 "老婆生日")
+                       (holiday-lunar 1 1 "春节" 0)
+                       ))
+;; To use, add something like the following to your .emacs:
+    (require 'cal-china-x)
+    (setq mark-holidays-in-calendar t)
+    (setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
+    (setq calendar-holidays cal-china-x-important-holidays)
     ;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -431,7 +464,7 @@ you should place your code here."
  '(cfs--profiles-steps (quote (("program" . 5))) t)
  '(package-selected-packages
    (quote
-    (beacon async ivy package-build visual-regexp-steroids visual-regexp multiple-cursors wgrep smex ivy-hydra counsel-projectile counsel pangu-spacing toc-org smeargle orgit org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets magit-gitflow htmlize helm-gitignore request helm-flyspell helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger flycheck-pos-tip flycheck evil-magit magit magit-popup git-commit with-editor company-statistics company-quickhelp pos-tip company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete chinese-fonts-setup ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline s powerline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm zenburn-theme which-key use-package spacemacs-theme quelpa popup helm-core evil bind-map avy))))
+    (cal-china-x beacon async ivy package-build visual-regexp-steroids visual-regexp multiple-cursors wgrep smex ivy-hydra counsel-projectile counsel pangu-spacing toc-org smeargle orgit org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets magit-gitflow htmlize helm-gitignore request helm-flyspell helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger flycheck-pos-tip flycheck evil-magit magit magit-popup git-commit with-editor company-statistics company-quickhelp pos-tip company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete chinese-fonts-setup ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline s powerline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm zenburn-theme which-key use-package spacemacs-theme quelpa popup helm-core evil bind-map avy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

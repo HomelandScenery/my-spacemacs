@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cfs--current-profile "program" t)
- '(cfs--profiles-steps (quote (("program" . 6))) t)
+ '(cfs--profiles-steps (quote (("program" . 4))) t)
  '(custom-safe-themes
    (quote
     ("e02187fd6fefb7041f0219a14a4ce3fc4a2db9f893fd1868d06b6d1480738581" default)))
