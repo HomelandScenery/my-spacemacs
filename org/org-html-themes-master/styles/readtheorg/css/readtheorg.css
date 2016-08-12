@@ -19,11 +19,13 @@ h1{
 
 h2{
     font-size:150%;
-    font-family:"Microsoft YaHei","\5FAE\x8F6F\6B63\9ED1\4F53","Hei", "SimHei", "\5FAE\8F6F\96C5\9ED1";
+    font-family:"方正兰亭黑_GBK","Microsoft YaHei","\5FAE\x8F6F\6B63\9ED1\4F53","Hei", "SimHei", "\5FAE\8F6F\96C5\9ED1";
 }
 
 h3{
     font-size:125%;
+    font-family:"方正兰亭黑_GBK","Microsoft YaHei","\5FAE\x8F6F\6B63\9ED1\4F53","Hei", "SimHei", "\5FAE\8F6F\96C5\9ED1";
+
 }
 
 h4{
@@ -54,7 +56,7 @@ html{
 body{
     background:#edf0f2;
     color:#404040;
-    font-family:"\5B8B\4F53","宋体","Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
+    font-family: "方正兰亭黑_GBK","Microsoft YaHei","\5FAE\x8F6F\6B63\9ED1\4F53","Hei", "SimHei", "\5FAE\8F6F\96C5\9ED1","\5B8B\4F53","宋体","Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
     font-weight:normal;
     margin:0;
     min-height:100%;
@@ -283,7 +285,7 @@ dl dd{
 }
 
 code{
-    background:#fff;
+    background:#fafafa;
     border:solid 1px #e1e4e5;
     /* color:#000;  for clickable code */
     font-family:Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
@@ -324,6 +326,7 @@ code{
     margin:1px 0 24px 0}
 
 pre.src{
+    background:#fafafa;
     /* color:#404040; */
     display:block;
     font-family:Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
