@@ -95,6 +95,7 @@
         markdown-enter-key
         markdown-exdent-or-delete
         markdown-insert-link
+        mc-hydra/mc/mark-all-like-this-and-exit
         move-line-down
         move-line-up
         move-text-down
@@ -211,6 +212,7 @@
         edebug-next-mode
         eval-expression
         evil-insert
+        evil-search-next
         find-tag
         god-local-mode
         goto-line-with-feedback
@@ -223,6 +225,13 @@
         kmacro-end-or-call-macro
         magit-copy-buffer-revision
         magit-status
+        mc-hydra/body
+        mc-hydra/mc/mark-next-like-this
+        mc-hydra/mc/mark-previous-like-this
+        mc-hydra/mc/skip-to-next-like-this
+        mc-hydra/mc/skip-to-previous-like-this
+        mc-hydra/mc/unmark-next-like-this
+        mc-hydra/mc/unmark-previous-like-this
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
         mouse-set-region
