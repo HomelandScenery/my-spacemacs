@@ -74,6 +74,7 @@
         html-paragraph
         html-wrap-in-tag
         hungry-delete-backward
+        hungry-delete-forward
         ignore
         insert-postfix-whitespace
         js2-beginning-of-line
@@ -95,6 +96,7 @@
         markdown-enter-key
         markdown-exdent-or-delete
         markdown-insert-link
+        mc-hydra/mc/edit-lines-and-exit
         mc-hydra/mc/mark-all-like-this-and-exit
         move-line-down
         move-line-up

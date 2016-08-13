@@ -466,9 +466,17 @@ you should place your code here."
   ("M-p" mc/unmark-previous-like-this)
   ("r" mc/mark-all-in-region-regexp :exit t)
   ("q" nil))
-(global-set-key (kbd"C-c C-m") 'mc-hydra/body)
+(global-set-key (kbd"C-c C-. ") 'mc-hydra/body)
+(evil-leader/set-key "o m" 'mc-hydra/body)
 ;;hydra-multiple-cursors settings ends here;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+
   
   )
 
