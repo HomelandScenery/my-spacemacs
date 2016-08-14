@@ -340,7 +340,7 @@ you should place your code here."
   (define-key global-map (kbd "C-c r") 'vr/replace)
   (define-key global-map (kbd "C-c q") 'vr/query-replace)
   ;; if you use multiple-cursors, this is for you:
-  (define-key global-map (kbd "C-c m") 'vr/mc-mark)
+  ;; (define-key global-map (kbd "C-c m") 'vr/mc-mark)
   ;; to use visual-regexp-steroids's isearch instead of the built-in regexp isearch, also include the following lines:
   (define-key esc-map (kbd "C-r") 'vr/isearch-backward) ;; C-M-r
   (define-key esc-map (kbd "C-s") 'vr/isearch-forward) ;; C-M-s
@@ -466,7 +466,7 @@ you should place your code here."
   ("M-p" mc/unmark-previous-like-this)
   ("r" mc/mark-all-in-region-regexp :exit t)
   ("q" nil))
-(global-set-key (kbd"C-c C-. ") 'mc-hydra/body)
+(global-set-key (kbd"C-c m") 'mc-hydra/body)
 (evil-leader/set-key "o m" 'mc-hydra/body)
 ;;hydra-multiple-cursors settings ends here;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;

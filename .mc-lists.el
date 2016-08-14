@@ -25,6 +25,7 @@
         change-inner
         change-number-at-point
         change-outer
+        chinese-wbim-insert-ascii
         cider-eval-last-sexp
         clj-hippie-expand-no-case-fold
         cljr-cycle-coll
