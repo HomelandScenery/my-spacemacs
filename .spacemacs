@@ -470,6 +470,7 @@ you should place your code here."
 (evil-leader/set-key "o m" 'mc-hydra/body)
 ;;hydra-multiple-cursors settings ends here;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
+(electric-pair-mode 1)
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;

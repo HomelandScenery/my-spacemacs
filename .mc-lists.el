@@ -60,6 +60,7 @@
         evil-next-line
         evil-normal-state
         evil-previous-line
+        evil-repeat-find-char
         evil-replace
         evil-search-forward
         evil-substitute
@@ -76,6 +77,7 @@
         html-wrap-in-tag
         hungry-delete-backward
         hungry-delete-forward
+        hydra--digit-argument
         ignore
         insert-postfix-whitespace
         js2-beginning-of-line
