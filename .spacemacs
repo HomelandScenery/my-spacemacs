@@ -27,7 +27,7 @@ values."
         better-defaults
      emacs-lisp
      git
-     ;; markdown
+     markdown
      html
      ;;chinese
       org
@@ -36,7 +36,7 @@ values."
      ;;        shell-default-position 'bottom)
       ;;spell-checking
       syntax-checking
-     ;; version-control
+     version-control
       (chinese :variables
                chinese-default-input-method 'wubi
                chinese-enable-youdao-dict t))
