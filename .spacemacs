@@ -50,7 +50,7 @@ values."
                                       multiple-cursors 
                                       expand-region
                                       visual-regexp
-                                      visual-regexp-steroids
+                                      ;; visual-regexp-steroids
                                       beacon
                                       cal-china-x
                                       )
@@ -320,6 +320,9 @@ you should place your code here."
   ;; (defined-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
   ;;自定义复制，避免与Ditto软件冲突
   (global-set-key (kbd "C-v") 'yank)
+  ;; 将默认翻页"C-v"更改为"C-S-v"
+  (global-set-key (kbd "C-S-v") 'scroll-up)
+  
   ;;evil模式下同样能使用ditto复制
   (define-key evil-insert-state-map (kbd "C-v") 'evil-paste-after)
   (define-key evil-normal-state-map (kbd "C-v") 'evil-paste-after) 
@@ -335,22 +338,17 @@ you should place your code here."
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;;;;;;;;;;;;;;;;;;
-
-  (require 'visual-regexp-steroids)
+  (require 'visual-regexp)
   (define-key global-map (kbd "C-c r") 'vr/replace)
   (define-key global-map (kbd "C-c q") 'vr/query-replace)
   ;; if you use multiple-cursors, this is for you:
-  ;; (define-key global-map (kbd "C-c m") 'vr/mc-mark)
-  ;; to use visual-regexp-steroids's isearch instead of the built-in regexp isearch, also include the following lines:
-  (define-key esc-map (kbd "C-r") 'vr/isearch-backward) ;; C-M-r
-  (define-key esc-map (kbd "C-s") 'vr/isearch-forward) ;; C-M-s
-
+  (define-key global-map (kbd "C-c m") 'vr/mc-mark)
   ;;;;;;;;;;;;;;;;;;;;;;;;  
  
   ;;;;;;;;;;;;;;;;;;;;;;;;
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (global-set-key (kbd "C-s") 'swiper)
+  ;; (ivy-mode 1)
+  ;; (setq ivy-use-virtual-buffers t)
+  ;; (global-set-key (kbd "C-s") 'swiper)
   ;;http://oremacs.com/swiper/
   ;;(global-set-key (kbd "C-c C-r") 'ivy-resume)
 ;;  (global-set-key (kbd "<f6>") 'ivy-resume)
@@ -369,7 +367,7 @@ you should place your code here."
 ;; Replace abbrev-mode lighter with "Abv"
 ;; (diminish 'abbrev-mode "Abv")
 (diminish 'beacon-mode)
-(diminish 'ivy-mode "I")
+;; (diminish 'ivy-mode "I")
 (diminish 'server)
   ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -493,7 +491,7 @@ you should place your code here."
  '(cfs--profiles-steps (quote (("program" . 5))) t)
  '(package-selected-packages
    (quote
-    (cal-china-x beacon async ivy package-build visual-regexp-steroids visual-regexp multiple-cursors wgrep smex ivy-hydra counsel-projectile counsel pangu-spacing toc-org smeargle orgit org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets magit-gitflow htmlize helm-gitignore request helm-flyspell helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger flycheck-pos-tip flycheck evil-magit magit magit-popup git-commit with-editor company-statistics company-quickhelp pos-tip company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete chinese-fonts-setup ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline s powerline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm zenburn-theme which-key use-package spacemacs-theme quelpa popup helm-core evil bind-map avy))))
+    (youdao-dictionary names chinese-word-at-point web-mode tagedit swiper slim-mode scss-mode sass-mode mmm-mode markdown-toc markdown-mode less-css-mode jade-mode helm-css-scss haml-mode git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md find-by-pinyin-dired emmet-mode diff-hl company-web web-completion-data chinese-wbim chinese-pyim chinese-pyim-basedict ace-pinyin pinyinlib ace-jump-mode bind-key cal-china-x beacon async ivy package-build visual-regexp-steroids visual-regexp multiple-cursors wgrep smex ivy-hydra counsel-projectile counsel pangu-spacing toc-org smeargle orgit org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets magit-gitflow htmlize helm-gitignore request helm-flyspell helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger flycheck-pos-tip flycheck evil-magit magit magit-popup git-commit with-editor company-statistics company-quickhelp pos-tip company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete chinese-fonts-setup ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline s powerline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm zenburn-theme which-key use-package spacemacs-theme quelpa popup helm-core evil bind-map avy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
