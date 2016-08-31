@@ -16,11 +16,11 @@
   ;; 设置默认 Org Agenda 文件目录
   
   
-  (setq org-agenda-files '("~/.emacs.d/private/org"))
+  (setq org-agenda-files '("~/git/org"))
   ;;Org-mode 来做学习笔记和安排工作时间
 
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/.emacs.d/private/org/gtd.org" "工作安排")
+        '(("t" "Todo" entry (file+headline "~/git/org/gtd.org" "工作安排")
            "* TODO [#B] %?\n  %i\n"
            :empty-lines 1)))
   
