@@ -470,6 +470,7 @@ you should place your code here."
 ;;hydra-multiple-cursors settings ends here;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
 (electric-pair-mode 1)
+(tabbar-mode 1)
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
