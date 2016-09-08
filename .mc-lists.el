@@ -173,6 +173,7 @@
         subtract-number-at-point
         subword-left
         subword-right
+        suspend-frame
         tagedit-forward-slurp-tag
         tagedit-insert-dot
         tagedit-insert-equal
