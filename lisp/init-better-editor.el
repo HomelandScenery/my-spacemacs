@@ -60,7 +60,7 @@ Replaces default behaviour of comment-dwim, when it inserts comment at the end o
 ;;;;;;;;;;;;;;;;;
 
 ;;;;;;;
-;;;;;;;
+;;Chinese-font-setup;;↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 ;;行距随着字号自动调整;;;;;
 (defvar my-line-spacing-alist
   '((9 . 0.1) (10 . 0.9) (11.5 . 0.5)
@@ -79,6 +79,19 @@ Replaces default behaviour of comment-dwim, when it inserts comment at the end o
 
 (add-hook 'cfs-set-font-finish-hook #'my-line-spacing-setup)
 
+;;测试ext-a字体;;;;;
+(defun cfs-set-ext-a-fonts (fontsizes-list)
+  (set-fontset-font
+   "fontset-default" nil
+   (font-spec :name "HanaMinA"
+              :size (nth 1 fontsizes-list)
+              :weight 'normal
+              :slant 'normal)
+   nil 'prepend))
+
+(add-hook 'cfs-set-font-finish-hook 'cfs-set-ext-a-fonts)
+
+;;Chinese-font-setup ends here;;↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;add count for chinese, mainly used for writing chinese blog post
 ;; http://kuanyui.github.io/2014/01/18/count-chinese-japanese-and-english-words-in-emacs/
