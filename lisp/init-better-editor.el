@@ -82,14 +82,15 @@ Replaces default behaviour of comment-dwim, when it inserts comment at the end o
 ;;测试ext-a字体;;;;;
 (defun cfs-set-ext-a-fonts (fontsizes-list)
   (set-fontset-font
-   "fontset-default" nil
-   (font-spec :name "HanaMinA"
-              :size (nth 1 fontsizes-list)
+   "fontset-default" '(#x3400 . #x4DFF)
+   (font-spec :name "微软雅黑"
+              :size (nth 2 fontsizes-list)
               :weight 'normal
               :slant 'normal)
-   nil 'prepend))
+   nil))
 
 (add-hook 'cfs-set-font-finish-hook 'cfs-set-ext-a-fonts)
+
 
 ;;Chinese-font-setup ends here;;↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
