@@ -80,18 +80,18 @@ Replaces default behaviour of comment-dwim, when it inserts comment at the end o
 (add-hook 'cfs-set-font-finish-hook #'my-line-spacing-setup)
 
 ;;测试ext-a字体;;;;;
-(defun cfs-set-ext-a-fonts (fontsizes-list)
-  (set-fontset-font
-   "fontset-default" '(#x3400 . #x4DFF)
-   (font-spec :name "微软雅黑"
-              :size (nth 2 fontsizes-list)
-              :weight 'normal
-              :slant 'normal)
-   nil))
+(defun my-set-exta-fonts (fontsizes-list)
+  (let* ((fontname "微软雅黑")
+         (fontsize (nth 1 fontsizes-list))
+         (fontspec (font-spec :name fontname
+                              :size fontsize
+                              :weight 'normal
+                              :slant 'normal)))
+    (if (cfs--fontspec-valid-p fontspec)
+        (set-fontset-font "fontset-default" '(#x3400 . #x4DFF) fontspec nil 'append)
+      (message "字体 %S 不存在！" fontname))))
 
-(add-hook 'cfs-set-font-finish-hook 'cfs-set-ext-a-fonts)
-
-
+(add-hook 'cfs-set-font-finish-hook 'my-set-exta-fonts)
 ;;Chinese-font-setup ends here;;↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;add count for chinese, mainly used for writing chinese blog post

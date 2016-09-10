@@ -236,7 +236,7 @@ values."
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
+   dotspacemacs-search-tools '( "pt" "ag" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
@@ -275,7 +275,7 @@ you should place your code here."
 ;; 让 chinese-fonts-setup 随着 emacs 自动生效。
    (chinese-fonts-setup-enable)
   ;; 让 spacemacs mode-line 中的 Unicode 图标正确显示。
-  (cfs-set-spacemacs-fallback-fonts)
+  ;; (cfs-set-spacemacs-fallback-fonts)
   (setq cfs-keep-frame-size nil)
   ;; 选择不同的字体配置
   (setq cfs-profiles
@@ -296,8 +296,7 @@ you should place your code here."
   ;;;;;;;;;;;;;;;;;;;;;;;;
   (setq custom-file (expand-file-name "~/.emacs.d/lisp/Custom.el" dotspacemacs-directory))
   (load custom-file 'no-error 'no-message)
-
-
+;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
