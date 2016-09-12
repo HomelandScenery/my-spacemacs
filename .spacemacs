@@ -288,11 +288,25 @@ you should place your code here."
   (setq-default line-spacing 12)
 ;;;;;;;
 ;;;;;;;;;;
-  ;;;;;;;;;;;;;;;;;;;;;;;;
-  (prefer-coding-system 'utf-8)
-  (set-default-coding-systems 'utf-8)
+  ;; Charset 设置
+  (use-package mule
+    :ensure nil
+    :config
 
-  (setq file-name-coding-system 'gbk)
+    (set-language-environment "UTF-8")
+    (set-buffer-file-coding-system 'utf-8-unix)
+    (set-clipboard-coding-system 'utf-8-unix)
+    (set-file-name-coding-system 'utf-8-unix)
+    (set-keyboard-coding-system 'utf-8-unix)
+    (set-next-selection-coding-system 'utf-8-unix)
+    (set-selection-coding-system 'utf-8-unix)
+    (set-terminal-coding-system 'utf-8-unix)
+
+    (when (eq system-type 'windows-nt)
+      (set-selection-coding-system 'gbk-dos)
+      (set-next-selection-coding-system 'gbk-dos)
+      (set-clipboard-coding-system 'gbk-dos)))
+;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
   (setq custom-file (expand-file-name "~/.emacs.d/lisp/Custom.el" dotspacemacs-directory))
   (load custom-file 'no-error 'no-message)
