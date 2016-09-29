@@ -999,7 +999,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       (defun spacemacs/helm-files-do-pt (&optional dir)
         "Search in files with `pt'."
         (interactive)
-        (let ((helm-ag-base-command "pt -e --nocolor --nogroup"))
+        (let ((helm-ag-base-command "pt -e -S --nocolor --nogroup"))
           (helm-do-ag dir)))
 
       (defun spacemacs/helm-files-do-pt-region-or-symbol ()
@@ -1051,7 +1051,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       (defun spacemacs/helm-buffers-do-pt (&optional _)
         "Search in opened buffers with `pt'."
         (interactive)
-        (let ((helm-ag-base-command "pt -e --nocolor --nogroup"))
+        (let ((helm-ag-base-command "pt -e -S --nocolor --nogroup"))
           (helm-do-ag-buffers)))
 
       (defun spacemacs/helm-buffers-do-pt-region-or-symbol ()

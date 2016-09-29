@@ -54,7 +54,9 @@ values."
                                       beacon
                                       cal-china-x
                                       tabbar
+                                      pt
                                       )
+   
    
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
