@@ -33,10 +33,14 @@
 (setq org-bullets-bullet-list '("●" "◎" "□" "★"))
 
   ;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'org-mode-hook (lambda ()
-                           (setq truncate-lines nil)))
-
-                                        ;添加文本文件语法高亮
+(add-hook 'org-mode-hook
+          (lambda ()
+            (setq truncate-lines nil)
+            (toggle-word-wrap -1)
+            (local-set-key(kbd "<C-S-return>") 'org-insert-subheading);;添加子标题的快捷键
+            ))
+;;添加文本文件语法高亮
+(setq org-src-fontify-natively t)
 
   ;;;;;;;;;Org todo keywords关键词;;;;;;;;;;;;;;;
 (setq org-todo-keywords
