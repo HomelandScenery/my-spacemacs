@@ -98,8 +98,9 @@
 ;; Replace abbrev-mode lighter with "Abv"
 ;; (diminish 'abbrev-mode "Abv")
 (diminish 'beacon-mode)
+(diminish 'centered-window-mode)
 ;; (diminish 'ivy-mode "I")
-(diminish 'server)
+(diminish 'server-buffer-clients "SerV")
   ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;Company插件翻页更改
 (global-company-mode 1)
@@ -110,8 +111,8 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous)
   )
 
-(require 'chinese-pyim-company)
-(setq pyim-company-max-length 10)
+;; (require 'chinese-pyim-company)
+;; (setq pyim-company-max-length 10)
  ;;;;;;;;;;;;;;;;;;;;;;;;
 (setq font-lock-maximum-decoration t
       font-lock-maximum-size nil)
@@ -126,7 +127,7 @@
 ;;        '(("\\.xhtml\\'" . web-mode))
 ;;        '(("\\.css\\'" . web-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "<f9>") 'spacemacs-centered-buffer-mode)
+;; (global-set-key (kbd "<f9>") 'spacemacs-centered-buffer-mode)
 (show-paren-mode t)
 ;;日历设置;;;;;;;;;;;;;;;;;;;;;;
 ;; 为设置中文里的 ‘celestial-stem’ (天干) 和 ‘terrestrial-branch’ (地支):
@@ -187,7 +188,13 @@
 (electric-pair-mode 1)
 (tabbar-mode 1)
 (mode-icons-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'centered-window-mode)
+(centered-window-mode t)
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
+(require 'bind-key)
+(bind-key* "<f9>" 'centered-window-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-packages)
