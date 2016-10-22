@@ -36,6 +36,7 @@
 (add-hook 'org-mode-hook
           (lambda ()
             (setq truncate-lines nil)
+            (visual-line-mode 1) ; 1 for on, 0 for off.
             (toggle-word-wrap -1)
             (local-set-key(kbd "<C-S-return>") 'org-insert-subheading);;添加子标题的快捷键
             ))
