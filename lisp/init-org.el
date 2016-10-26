@@ -1,7 +1,8 @@
  ;;;;;;;org mode settings;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 (require 'org)
-
+(setq org-directory "~/git/org")
+(setq org-default-notes-file "~/git/org/refile.org")
 ;;;;;;;;org mode settings;;;;;;;;;;;;;;;;
 (defadvice org-agenda (around split-vertically activate)
   (let ((split-width-threshold 60))  ; or whatever width makes sense for you
@@ -14,16 +15,31 @@
   ;; Org 模式相关设定
 
   ;; 设置默认 Org Agenda 文件目录
-  
-  
   (setq org-agenda-files '("~/git/org"))
   ;;Org-mode 来做学习笔记和安排工作时间
 
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/git/org/gtd.org" "工作安排")
            "* TODO [#B] %?\n  %i\n"
-           :empty-lines 1)))
-  
+           :empty-lines 1)
+          ("c" "开庭" entry (file+headline "~/git/org/gtd.org" "开庭")
+           "* TODO [#B] %?\n  %k\n"
+           :empty-lines 1)
+          ("r" "回复" entry (file "~/git/org/refile.org")
+               "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
+              ("n" "note" entry (file "~/git/org/refile.org")
+               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("j" "Journal" entry (file+datetree "~/git/org/diary.org")
+               "* %?\n%U\n" :clock-in t :clock-resume t)
+              ("w" "org-protocol" entry (file "~/git/org/refile.org")
+               "* TODO Review %c\n%U\n" :immediate-finish t)
+              ("m" "Meeting" entry (file "~/git/org/refile.org")
+               "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
+              ("p" "Phone call" entry (file "~/git/org/refile.org")
+               "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
+              ("h" "Habit" entry (file "~/git/org/refile.org")
+               "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n")
+          ))
   )
 
 (global-set-key (kbd "C-c C-r") 'org-capture)
