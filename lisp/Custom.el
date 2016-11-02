@@ -17,7 +17,7 @@
  '(paradox-github-token t)
  '(yas-snippet-dirs
    (quote
-    ("c:/Home/.emacs.d/private/snippets/" "c:/Home/.spacemacs.d/private/snippets" yas-installed-snippets-dir "c:/Home/.emacs.d/layers/+completion/auto-completion/local/snippets"))))
+    ("~/.emacs.d/private/snippets/" "~/.spacemacs.d/private/snippets" yas-installed-snippets-dir "~/.emacs.d/layers/+completion/auto-completion/local/snippets"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
