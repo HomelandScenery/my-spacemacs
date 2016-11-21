@@ -1,3 +1,22 @@
+;;testing cygwin
+(when (string-equal system-type "windows-nt")
+  (let (
+        (mypaths
+         '(
+           "C:/Python34"
+           ;; "C:/Users/h3/AppData/Roaming/npm"
+           ;; "C:/Program Files (x86)/nodejs/"
+
+           "C:/cygwin64/usr/local/bin"
+           "c:/cygwin64/usr/bin"
+           "c:/cygwin64/bin"
+           ))
+        )
+    (setenv "PATH" (mapconcat 'identity mypaths ";"))
+    (setq exec-path (append mypaths (list "." exec-directory)))
+    ))
+
+;; test ends here.
 
 ;; Smart copy, if no region active, it simply copy the current whole line
 (defadvice kill-line (before check-position activate)

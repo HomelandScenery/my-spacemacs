@@ -9,7 +9,7 @@
    (quote
     ("e02187fd6fefb7041f0219a14a4ce3fc4a2db9f893fd1868d06b6d1480738581" default)))
  '(helm-ag-always-set-extra-option nil)
- '(helm-ag-base-command "pt -e -S --nocolor --nogroup")
+ ;; '(helm-ag-base-command "pt -e -S --nocolor --nogroup")
  '(package-hidden-regexps (quote ("\\chinese")))
  '(package-selected-packages
    (quote
