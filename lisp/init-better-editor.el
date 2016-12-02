@@ -1,22 +1,22 @@
-;;testing cygwin
-(when (string-equal system-type "windows-nt")
-  (let (
-        (mypaths
-         '(
-           "C:/Python34"
-           ;; "C:/Users/h3/AppData/Roaming/npm"
-           ;; "C:/Program Files (x86)/nodejs/"
+;; ;;testing cygwin
+;; (when (string-equal system-type "windows-nt")
+;;   (let (
+;;         (mypaths
+;;          '(
+;;            "C:/Python34"
+;;            ;; "C:/Users/h3/AppData/Roaming/npm"
+;;            ;; "C:/Program Files (x86)/nodejs/"
 
-           "C:/cygwin64/usr/local/bin"
-           "c:/cygwin64/usr/bin"
-           "c:/cygwin64/bin"
-           ))
-        )
-    (setenv "PATH" (mapconcat 'identity mypaths ";"))
-    (setq exec-path (append mypaths (list "." exec-directory)))
-    ))
+;;            "C:/cygwin64/usr/local/bin"
+;;            "c:/cygwin64/usr/bin"
+;;            "c:/cygwin64/bin"
+;;            ))
+;;         )
+;;     (setenv "PATH" (mapconcat 'identity mypaths ";"))
+;;     (setq exec-path (append mypaths (list "." exec-directory)))
+;;     ))
 
-;; test ends here.
+;; ;; test ends here.
 
 ;; Smart copy, if no region active, it simply copy the current whole line
 (defadvice kill-line (before check-position activate)
@@ -28,21 +28,21 @@
           (progn (forward-char 1)
                  (just-one-space 0)
                  (backward-char 1)))))
- 
+
 (defadvice kill-ring-save (before slick-copy activate compile)
   "When called interactively with no active region, copy a single line instead."
   (interactive (if mark-active (list (region-beginning) (region-end))
                  (message "Copied line")
                  (list (line-beginning-position)
                        (line-beginning-position 2)))))
- 
+
 (defadvice kill-region (before slick-cut activate compile)
   "When called interactively with no active region, kill a single line instead."
   (interactive
    (if mark-active (list (region-beginning) (region-end))
      (list (line-beginning-position)
            (line-beginning-position 2)))))
- 
+
 ;; Copy line from point to the end, exclude the line break
 (defun qiang-copy-line (arg)
   "Copy lines (as many as prefix argument) in the kill ring"
@@ -51,7 +51,7 @@
                   (line-end-position))
                   ;; (line-beginning-position (+ 1 arg)))
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
- 
+
 
 ;; 如果没有激活的区域，就注释/反注释当前行，仅当在行尾的时候才在行尾加注释
 (defun qiang-comment-dwim-line (&optional arg)
@@ -169,6 +169,30 @@ Replaces default behaviour of comment-dwim, when it inserts comment at the end o
              (+ chinese-char english-word)))))
 
 ;;;;;;;;;;
+;;https://github.com/bbatsov/crux settings
 
+(use-package crux
+  :ensure t
+  :bind (("C-c o" . crux-open-with)
+         ("M-o" . crux-smart-open-line)
+         ("C-a" . crux-move-beginning-of-line)
+         ([(shift return)] . crux-smart-open-line);;to be test on orgmode;;
+         ([(control shift return)] . crux-smart-open-line-above)
+         ("C-c n" . crux-cleanup-buffer-or-region)
+         ("C-c f" . crux-recentf-ido-find-file)
+         ("C-M-z" . crux-indent-defun)
+         ("C-c u" . crux-view-url)
+         ("C-c e" . crux-eval-and-replace)
+         ("C-c w" . crux-swap-windows)
+         ("C-c D" . crux-delete-file-and-buffer)
+         ("C-c R" . crux-rename-buffer-and-file)
+         ("C-c S" . crux-find-shell-init-file)
+         ("C-^" . crux-top-join-line)
+         ("C-<backspace>" . crux-kill-line-backwards)
+         ("s-o" . crux-smart-open-line-above)
+         ;; ([remap move-beginning-of-line] . crux-move-beginning-of-line)
+         ([remap kill-whole-line] . crux-kill-whole-line)
+         )
+  ;; :bind* (("C-a" . crux-move-beginning-of-line))
+  )
 (provide 'init-better-editor)
-
