@@ -175,7 +175,7 @@ Replaces default behaviour of comment-dwim, when it inserts comment at the end o
   :ensure t
   :bind (("C-c o" . crux-open-with)
          ("M-o" . crux-smart-open-line)
-         ("C-a" . crux-move-beginning-of-line)
+         ;; ("C-a" . crux-move-beginning-of-line)
          ([(shift return)] . crux-smart-open-line);;to be test on orgmode;;
          ([(control shift return)] . crux-smart-open-line-above)
          ("C-c n" . crux-cleanup-buffer-or-region)
@@ -193,6 +193,6 @@ Replaces default behaviour of comment-dwim, when it inserts comment at the end o
          ;; ([remap move-beginning-of-line] . crux-move-beginning-of-line)
          ([remap kill-whole-line] . crux-kill-whole-line)
          )
-  ;; :bind* (("C-a" . crux-move-beginning-of-line))
+  :bind* (("C-a" . crux-move-beginning-of-line))
   )
 (provide 'init-better-editor)
