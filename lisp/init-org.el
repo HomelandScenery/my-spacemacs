@@ -23,7 +23,7 @@
            "* TODO [#B] %?\n  %i\n"
            :empty-lines 1)
           ("c" "开庭" entry (file+headline "~/git/org/gtd.org" "开庭")
-           "* TODO [#B] %?\n  %k\n"
+           "* TODO [#B] %? 法院第庭\n 法官：，书记员：，电话：\n %k\n"
            :empty-lines 1)
           ("r" "回复" entry (file "~/git/org/refile.org")
                "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
