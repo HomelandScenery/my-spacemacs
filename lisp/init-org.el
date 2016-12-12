@@ -59,7 +59,13 @@
 ;;添加文本文件语法高亮
 (setq org-src-fontify-natively t)
 
-  ;;;;;;;;;Org todo keywords关键词;;;;;;;;;;;;;;;
+;;;;;;;;;Org todo keywords关键词;;;;;;;;;;;;;;;
+;; logging settings;;
+
+(setq org-log-done (quote time))
+(setq org-log-into-drawer t)
+(setq org-log-state-notes-insert-after-drawers nil)
+
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
               (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
