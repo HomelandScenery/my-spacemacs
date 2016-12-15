@@ -15,7 +15,10 @@
   ;; Org 模式相关设定
 
   ;; 设置默认 Org Agenda 文件目录
-  (setq org-agenda-files '("~/git/org"))
+  (setq org-agenda-files (quote ("~/git/org"
+                                 ;; "~/git/org/client1"
+                                 ;; "~/git/client2"
+                                 )))
   ;;Org-mode 来做学习笔记和安排工作时间
 
   (setq org-capture-templates
@@ -65,9 +68,9 @@
 (setq org-log-done (quote time))
 (setq org-log-into-drawer t)
 (setq org-log-state-notes-insert-after-drawers nil)
-
+(setq org-log-reschedule (quote time))
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+      (quote ((sequence "TODO(t)" "NEXT(n/!)" "|" "DONE(d@)")
               (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
 
 (setq org-todo-keyword-faces
@@ -94,6 +97,25 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 设定每插入或删除一个注脚后,自动重编码和排序文档中的所有注脚.
 (setq org-footnote-auto-adjust t)
+;;From BH org-mode settings;;;;;;;;;;;;;;;;;;;;;;
+(setq org-refile-targets (quote ((nil :maxlevel . 9)
+                                 (org-agenda-files :maxlevel . 9))))
+; Use full outline paths for refile targets - we file directly with IDO
+(setq org-refile-use-outline-path 'file)
+(setq org-outline-path-complete-in-steps nil)
+; Allow refile to create parent tasks with confirmation
+(setq org-refile-allow-creating-parent-nodes (quote confirm))
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
 
