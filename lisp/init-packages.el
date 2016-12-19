@@ -204,6 +204,8 @@
 (setq epa-file-cache-passphrase-for-symmetric-encryption t)
 (setq epa-file-inhibit-auto-save nil)
 (setq epa-file-select-keys 0)
-;; 當你把文件的副檔名加上 .gpg 以後，emacs 會直接要求你輸入密碼，而不是再彈出一個選單
+;; 默认使用对称加密，不需要弹出选项
+;; 如需要使用非对称加密方法，可以在需要加密的文件头添加
+;; -*- epa-file-encrypt-to: ("hezhantao@msn.com") -*-
 ;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-packages)
