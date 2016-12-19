@@ -197,4 +197,13 @@
 (require 'bind-key)
 (bind-key* "<f9>" 'centered-window-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;
+;;GPG加密文件;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'epa-file)
+(epa-file-enable)
+(setenv "GPG_AGENT_INFO" nil)
+(setq epa-file-cache-passphrase-for-symmetric-encryption t)
+(setq epa-file-inhibit-auto-save nil)
+(setq epa-file-select-keys 0)
+;; 當你把文件的副檔名加上 .gpg 以後，emacs 會直接要求你輸入密碼，而不是再彈出一個選單
+;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-packages)
