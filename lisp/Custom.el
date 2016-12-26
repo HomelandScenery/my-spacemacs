@@ -9,6 +9,16 @@
    (quote
     ("e02187fd6fefb7041f0219a14a4ce3fc4a2db9f893fd1868d06b6d1480738581" default)))
  '(helm-ag-always-set-extra-option nil)
+ '(org-agenda-custom-commands
+   (quote
+    (("n" "Agenda and all TODOs"
+      ((agenda "" nil)
+       (todo "TODO"
+             ((org-agenda-overriding-header "TODOs"))))
+      nil)
+     ("c1" "待开庭案件" tags-todo "开庭"
+      ((org-agenda-overriding-header "待开庭案件")))
+     )))
  '(package-hidden-regexps (quote ("\\chinese")))
  '(package-selected-packages
    (quote
