@@ -124,7 +124,12 @@
 ;;
 ;; # -*- buffer-auto-save-file-name: nil; -*-
   ;;;;;;;;;;;;;;;;;;;;;;;;
-  ;;;;;;;;;;;;;;;;;;;;;;;;
+;;Ordered tasks;;有顺序的任务设置
+(setq org-enforce-todo-dependencies t)
+(setq org-track-ordered-property-with-tag t)
+(setq org-agenda-dim-blocked-tasks nil);;('invisible);;在Agenda视图中，隐藏任务
+;; (setq org-enforce-todo-checkbox-dependencies t)
+;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;

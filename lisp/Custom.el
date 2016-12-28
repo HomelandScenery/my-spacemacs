@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cfs--current-profile "program" t)
- '(cfs--profiles-steps (quote (("program" . 4))) t)
+ '(cfs--profiles-steps (quote (("program" . 3))) t)
  '(custom-safe-themes
    (quote
     ("e02187fd6fefb7041f0219a14a4ce3fc4a2db9f893fd1868d06b6d1480738581" default)))
@@ -17,8 +17,7 @@
              ((org-agenda-overriding-header "TODOs"))))
       nil)
      ("c1" "待开庭案件" tags-todo "开庭"
-      ((org-agenda-overriding-header "待开庭案件")))
-     )))
+      ((org-agenda-overriding-header "待开庭案件"))))))
  '(package-hidden-regexps (quote ("\\chinese")))
  '(package-selected-packages
    (quote
